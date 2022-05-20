@@ -26,15 +26,24 @@ Window{
 
     Button {
         id: btnSetting
-//        background: Image{
-//            source: "/icon/btn-setting"
-//        }
-        text: "test"
+        background: Rectangle{
+           color: "transparent"
+           Image{
+                source: "/icon/btn-setting"
+                x: btnSetting.pressed ? 1:0
+                y: btnSetting.pressed ? 1:0
+           }
+           border.width: btnSetting.hovered ? 1 : 0
+           border.color: "gray"
+        }
         y: 21
         width: 20
         height: 20
         anchors.right: parent.right
-        anchors.rightMargin: 10
+        anchors.rightMargin: 20
+        onClicked: {
+            console.log("click settings button")
+        }
     }
 
     TextField {
