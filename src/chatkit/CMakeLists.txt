@@ -61,9 +61,9 @@ target_link_libraries(${ChatKitLib}
         protobuf::libprotobuf-lite
         restclient-cpp
         SQLiteCpp
-        spdlog.a
         nlohmann_json::nlohmann_json
-        unofficial::libuv::libuv
+        spdlog.a
+        libuv.a
         )
 
 # 静态库

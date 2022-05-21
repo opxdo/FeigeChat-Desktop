@@ -16,6 +16,7 @@ xcode: 12.5.1+
 
 自己编译（src/3rd-party）：
 - spdlog: 1.9.2
+- libuv: 1.44.1
 
 使用vcpkg：
 ```bash
@@ -27,6 +28,7 @@ $ vcpkg install restclient-cpp   # c++ wraps libcurl for HTTP requests, see: htt
 $ vcpkg install nlohmann-json    # json解析库，比jsoncpp好用，see: https://github.com/nlohmann/json
 $ vcpkg install sqlitecpp        # sqlite3的封装库，see: https://github.com/SRombauts/SQLiteCpp
 $ vcpkg install gtest            # google unit test, see: https://github.com/google/googletest
+$ vcpkg install libuv            # c跨平台网络库, see: https://github.com/libuv/libuv
 ```
 
 > ps：在macOS上，vcpkg install protobuf安装的是静态库，在windows上，安装的是动态库，静态库需要替换为：vcpkg install protobuf:x86-windows-static
