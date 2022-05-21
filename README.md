@@ -14,10 +14,13 @@ xcode: 12.5.1+
 
 ## Depends
 
+自己编译（src/3rd-party）：
+- spdlog: 1.9.2
+
+使用vcpkg：
 ```bash
 $ vcpkg install spdlog           # c++log库, see: https://github.com/gabime/spdlog
 $ vcpkg install protobuf         # 3.14.0（如果版本变了，请重新生成protobuf文件）, see: https://github.com/protocolbuffers/protobuf
-#$ vcpkg install evpp             # c++跨平台通信库, see: https://github.com/Qihoo360/evpp
 $ vcpkg install restclient-cpp   # c++ wraps libcurl for HTTP requests, see: https://github.com/mrtazz/restclient-cpp
 # $ vcpkg install toml11         # toml解析库，header only, see: https://github.com/ToruNiina/toml11
 # $ vcpkg install crossguid      # 跨平台guid，see: https://github.com/graeme-hill/crossguid

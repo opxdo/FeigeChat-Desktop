@@ -22,11 +22,9 @@ aux_source_directory(cim/pb CHAT_KIT_SRC)
 
 if (APPLE) # 使用vcpkg 快速安装的依赖
     find_package(Protobuf CONFIG REQUIRED)
-    find_package(spdlog CONFIG REQUIRED)
     find_package(restclient-cpp CONFIG REQUIRED)
     find_package(SQLiteCpp CONFIG REQUIRED)
     find_package(unofficial-libuv CONFIG REQUIRED)
-#    find_package(evpp CONFIG REQUIRED)
     find_package(nlohmann_json CONFIG REQUIRED)
 endif ()
 
@@ -36,14 +34,16 @@ add_library(${ChatKitLib} SHARED ${CHAT_KIT_SRC})
 # 起一个别名
 add_library(cim::chatkit ALIAS ${PROJECT_NAME})
 
+message("第三方库：${THIRD_LIB_DIR}")
+
 target_include_directories(${PROJECT_NAME}
         PUBLIC
         ${PROJECT_SOURCE_DIR} # chatKit目录，这样外部就能找到头文件所在目录了
-        ${THIRD_LIB_DIR}    # 第三方库
+        ${THIRD_INCLUDE_DIR}  # 第三方库的头文件
         )
 target_link_directories(${PROJECT_NAME}
         PUBLIC
-        ${THIRD_INCLUDE_DIR} # 第三方库的头文件
+        ${THIRD_LIB_DIR}    # 第三方库
         )
 
 target_link_libraries(${ChatKitLib}

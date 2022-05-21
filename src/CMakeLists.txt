@@ -25,11 +25,13 @@ add_definitions(
         #-Werror # 警告视为错误，比较严格，可以根据需求启用
 )
 
-# hellochat 通过该标志判断是否在Qt Creator中打开
+# feigeChat 通过该标志判断是否在Qt Creator中打开
 set(IN_CLION_IDE true CACHE INTERNAL "is in clion ide")
-set(THIRD_LIB_DIR 3rd-party/lib)
+
+# 公共第三方依赖
+set(THIRD_LIB_DIR ${PROJECT_SOURCE_DIR}/3rd-party/lib)
 set(THIRD_INCLUDE_DIR
-        3rd-party/spdlog/include
+        ${PROJECT_SOURCE_DIR}/3rd-party/spdlog-1.9.2/include
         )
 
 # 库
