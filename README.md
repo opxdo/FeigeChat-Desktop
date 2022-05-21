@@ -53,6 +53,12 @@ add cmake options(Preferences>Build,Execution>CMake>CMake options):
 # -DCMAKE_TOOLCHAIN_FILE=/Users/xuyc/repo/github/vcpkg/scripts/buildsystems/vcpkg.cmake
 ```
 
+macOS：Clion建议设置Clang编译器
+- toolchains
+    - Build Tools: /usr/bin/make
+    - C Compiler: /usr/bin/clang
+    - C++ Compiler: /usr/bin/clang++
+
 # Build with Qt Creator
 
 具体见：[qt creator使用vcpkg](https://blog.csdn.net/xmcy001122/article/details/124900259)
