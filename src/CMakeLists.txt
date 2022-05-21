@@ -21,21 +21,24 @@ add_definitions(
         -fms-extensions
         -Wfloat-equal
         -Wextra
-        -std=c++11
+        -std=c++14
         #-Werror # 警告视为错误，比较严格，可以根据需求启用
 )
 
 # hellochat 通过该标志判断是否在Qt Creator中打开
 set(IN_CLION_IDE true CACHE INTERNAL "is in clion ide")
+set(THIRD_LIB_DIR 3rd-party/lib)
+set(THIRD_INCLUDE_DIR
+        3rd-party/spdlog/include
+        )
 
 # 库
 add_subdirectory(chatkit)
-add_subdirectory(hellochat)
+add_subdirectory(feigechat)
 
 # 生成demo
 set(BUILD_DEMO true)
 if (BUILD_DEMO)
     add_subdirectory(test/client)
-    add_subdirectory(test/libuvdemo)
     add_subdirectory(test/unit_test)
 endif ()

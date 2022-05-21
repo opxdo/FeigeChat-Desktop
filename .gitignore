@@ -1,2 +1,4 @@
 /bin/
 .DS_Store
+src/cmake-build-debug
+src/3rd-party/lib
