@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PROTOC_DIR=/Users/xuyc/repo/github/vcpkg/installed/x64-osx/tools/protobuf/protoc
-DST_DIR=../mac/chatkit/cim/pb
+PROTOC_DIR=$VCPKGROOT/installed/x64-osx/tools/protobuf/protoc
+DST_DIR=../src/chatkit/cim/pb
 
 ${PROTOC_DIR} --cpp_out=${DST_DIR} CIM.Def.proto
 ${PROTOC_DIR} --cpp_out=${DST_DIR} CIM.Friend.proto

@@ -4,7 +4,8 @@
 #include <string>
 
 #include "cim/base/noncopyable.h"
-#include "cim/cim.h"
+#include "cim/cim_dll.h"
+#include "cim/cim_def.h"
 
 namespace cim {
 namespace db {

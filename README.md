@@ -6,7 +6,7 @@
 ## Require
 
 cmake: 3.14+
-qt: 5.12
+qt: > 6.2.3
 clang: 12.0.5+
 xcode: 12.5.1+
 

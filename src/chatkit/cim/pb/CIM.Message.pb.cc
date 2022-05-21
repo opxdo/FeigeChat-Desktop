@@ -20,9 +20,9 @@ constexpr CIMMsgData::CIMMsgData(
   : from_nick_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , client_msg_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , msg_data_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , from_user_id_(PROTOBUF_ULONGLONG(0))
-  , to_session_id_(PROTOBUF_ULONGLONG(0))
-  , server_msg_id_(PROTOBUF_ULONGLONG(0))
+  , from_user_id_(uint64_t{0u})
+  , to_session_id_(uint64_t{0u})
+  , server_msg_id_(uint64_t{0u})
   , create_time_(0)
   , msg_type_(0)
 
@@ -40,9 +40,9 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CIMMsgDataDefaultTypeInternal _
 constexpr CIMMsgDataAck::CIMMsgDataAck(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : client_msg_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , from_user_id_(PROTOBUF_ULONGLONG(0))
-  , to_session_id_(PROTOBUF_ULONGLONG(0))
-  , server_msg_id_(PROTOBUF_ULONGLONG(0))
+  , from_user_id_(uint64_t{0u})
+  , to_session_id_(uint64_t{0u})
+  , server_msg_id_(uint64_t{0u})
   , res_code_(0)
 
   , session_type_(0)
@@ -59,9 +59,9 @@ struct CIMMsgDataAckDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CIMMsgDataAckDefaultTypeInternal _CIMMsgDataAck_default_instance_;
 constexpr CIMMsgDataReadAck::CIMMsgDataReadAck(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : user_id_(PROTOBUF_ULONGLONG(0))
-  , session_id_(PROTOBUF_ULONGLONG(0))
-  , msg_id_(PROTOBUF_ULONGLONG(0))
+  : user_id_(uint64_t{0u})
+  , session_id_(uint64_t{0u})
+  , msg_id_(uint64_t{0u})
   , session_type_(0)
 {}
 struct CIMMsgDataReadAckDefaultTypeInternal {
@@ -75,9 +75,9 @@ struct CIMMsgDataReadAckDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CIMMsgDataReadAckDefaultTypeInternal _CIMMsgDataReadAck_default_instance_;
 constexpr CIMMsgDataReadNotify::CIMMsgDataReadNotify(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : user_id_(PROTOBUF_ULONGLONG(0))
-  , session_id_(PROTOBUF_ULONGLONG(0))
-  , msg_id_(PROTOBUF_ULONGLONG(0))
+  : user_id_(uint64_t{0u})
+  , session_id_(uint64_t{0u})
+  , msg_id_(uint64_t{0u})
   , session_type_(0)
 {}
 struct CIMMsgDataReadNotifyDefaultTypeInternal {
@@ -91,8 +91,8 @@ struct CIMMsgDataReadNotifyDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CIMMsgDataReadNotifyDefaultTypeInternal _CIMMsgDataReadNotify_default_instance_;
 constexpr CIMGetLatestMsgIdReq::CIMGetLatestMsgIdReq(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : user_id_(PROTOBUF_ULONGLONG(0))
-  , session_id_(PROTOBUF_ULONGLONG(0))
+  : user_id_(uint64_t{0u})
+  , session_id_(uint64_t{0u})
   , session_type_(0)
 {}
 struct CIMGetLatestMsgIdReqDefaultTypeInternal {
@@ -107,8 +107,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CIMGetLatestMsgIdReqDefaultType
 constexpr CIMGetLatestMsgIdRsp::CIMGetLatestMsgIdRsp(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : latest_msg_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , user_id_(PROTOBUF_ULONGLONG(0))
-  , session_id_(PROTOBUF_ULONGLONG(0))
+  , user_id_(uint64_t{0u})
+  , session_id_(uint64_t{0u})
   , session_type_(0)
 {}
 struct CIMGetLatestMsgIdRspDefaultTypeInternal {
@@ -123,8 +123,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CIMGetLatestMsgIdRspDefaultType
 constexpr CIMGetMsgByIdReq::CIMGetMsgByIdReq(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : msg_id_list_()
-  , user_id_(PROTOBUF_ULONGLONG(0))
-  , session_id_(PROTOBUF_ULONGLONG(0))
+  , user_id_(uint64_t{0u})
+  , session_id_(uint64_t{0u})
   , session_type_(0)
 {}
 struct CIMGetMsgByIdReqDefaultTypeInternal {
@@ -139,8 +139,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CIMGetMsgByIdReqDefaultTypeInte
 constexpr CIMGetMsgByIdRsp::CIMGetMsgByIdRsp(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : msg_list_()
-  , user_id_(PROTOBUF_ULONGLONG(0))
-  , session_id_(PROTOBUF_ULONGLONG(0))
+  , user_id_(uint64_t{0u})
+  , session_id_(uint64_t{0u})
   , session_type_(0)
 {}
 struct CIMGetMsgByIdRspDefaultTypeInternal {
@@ -163,29 +163,41 @@ class CIMMsgData::_Internal {
  public:
 };
 
-CIMMsgData::CIMMsgData(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena) {
+CIMMsgData::CIMMsgData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:CIM.Message.CIMMsgData)
 }
 CIMMsgData::CIMMsgData(const CIMMsgData& from)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
   from_nick_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    from_nick_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_from_nick_name().empty()) {
     from_nick_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_from_nick_name(), 
-      GetArena());
+      GetArenaForAllocation());
   }
   client_msg_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    client_msg_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_client_msg_id().empty()) {
     client_msg_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_client_msg_id(), 
-      GetArena());
+      GetArenaForAllocation());
   }
   msg_data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    msg_data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_msg_data().empty()) {
     msg_data_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_msg_data(), 
-      GetArena());
+      GetArenaForAllocation());
   }
   ::memcpy(&from_user_id_, &from.from_user_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&session_type_) -
@@ -193,10 +205,19 @@ CIMMsgData::CIMMsgData(const CIMMsgData& from)
   // @@protoc_insertion_point(copy_constructor:CIM.Message.CIMMsgData)
 }
 
-void CIMMsgData::SharedCtor() {
+inline void CIMMsgData::SharedCtor() {
 from_nick_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  from_nick_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 client_msg_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  client_msg_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 msg_data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  msg_data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&from_user_id_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&session_type_) -
@@ -205,12 +226,13 @@ msg_data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlr
 
 CIMMsgData::~CIMMsgData() {
   // @@protoc_insertion_point(destructor:CIM.Message.CIMMsgData)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<std::string>();
 }
 
-void CIMMsgData::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void CIMMsgData::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   from_nick_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   client_msg_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   msg_data_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
@@ -228,7 +250,7 @@ void CIMMsgData::SetCachedSize(int size) const {
 
 void CIMMsgData::Clear() {
 // @@protoc_insertion_point(message_clear_start:CIM.Message.CIMMsgData)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -244,116 +266,125 @@ void CIMMsgData::Clear() {
 const char* CIMMsgData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // uint64 from_user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           from_user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // string from_nick_name = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_from_nick_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, nullptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 to_session_id = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           to_session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // string client_msg_id = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           auto str = _internal_mutable_client_msg_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, nullptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 server_msg_id = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
           server_msg_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // int32 create_time = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          create_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          create_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .CIM.Def.CIMMsgType msg_type = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_msg_type(static_cast<::CIM::Def::CIMMsgType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .CIM.Def.CIMSessionType session_type = 8;
       case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_session_type(static_cast<::CIM::Def::CIMSessionType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bytes msg_data = 9;
       case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
           auto str = _internal_mutable_msg_data();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<std::string>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CIMMsgData::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* CIMMsgData::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:CIM.Message.CIMMsgData)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint64 from_user_id = 1;
-  if (this->from_user_id() != 0) {
+  if (this->_internal_from_user_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_from_user_id(), target);
   }
 
   // string from_nick_name = 2;
-  if (this->from_nick_name().size() > 0) {
+  if (!this->_internal_from_nick_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_from_nick_name().data(), static_cast<int>(this->_internal_from_nick_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -363,13 +394,13 @@ failure:
   }
 
   // uint64 to_session_id = 3;
-  if (this->to_session_id() != 0) {
+  if (this->_internal_to_session_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_to_session_id(), target);
   }
 
   // string client_msg_id = 4;
-  if (this->client_msg_id().size() > 0) {
+  if (!this->_internal_client_msg_id().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_client_msg_id().data(), static_cast<int>(this->_internal_client_msg_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -379,33 +410,33 @@ failure:
   }
 
   // uint64 server_msg_id = 5;
-  if (this->server_msg_id() != 0) {
+  if (this->_internal_server_msg_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_server_msg_id(), target);
   }
 
   // int32 create_time = 6;
-  if (this->create_time() != 0) {
+  if (this->_internal_create_time() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_create_time(), target);
   }
 
   // .CIM.Def.CIMMsgType msg_type = 7;
-  if (this->msg_type() != 0) {
+  if (this->_internal_msg_type() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       7, this->_internal_msg_type(), target);
   }
 
   // .CIM.Def.CIMSessionType session_type = 8;
-  if (this->session_type() != 0) {
+  if (this->_internal_session_type() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       8, this->_internal_session_type(), target);
   }
 
   // bytes msg_data = 9;
-  if (this->msg_data().size() > 0) {
+  if (!this->_internal_msg_data().empty()) {
     target = stream->WriteBytesMaybeAliased(
         9, this->_internal_msg_data(), target);
   }
@@ -422,67 +453,59 @@ size_t CIMMsgData::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CIM.Message.CIMMsgData)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string from_nick_name = 2;
-  if (this->from_nick_name().size() > 0) {
+  if (!this->_internal_from_nick_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_from_nick_name());
   }
 
   // string client_msg_id = 4;
-  if (this->client_msg_id().size() > 0) {
+  if (!this->_internal_client_msg_id().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_client_msg_id());
   }
 
   // bytes msg_data = 9;
-  if (this->msg_data().size() > 0) {
+  if (!this->_internal_msg_data().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_msg_data());
   }
 
   // uint64 from_user_id = 1;
-  if (this->from_user_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_from_user_id());
+  if (this->_internal_from_user_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_from_user_id());
   }
 
   // uint64 to_session_id = 3;
-  if (this->to_session_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_to_session_id());
+  if (this->_internal_to_session_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_to_session_id());
   }
 
   // uint64 server_msg_id = 5;
-  if (this->server_msg_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_server_msg_id());
+  if (this->_internal_server_msg_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_server_msg_id());
   }
 
   // int32 create_time = 6;
-  if (this->create_time() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_create_time());
+  if (this->_internal_create_time() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_create_time());
   }
 
   // .CIM.Def.CIMMsgType msg_type = 7;
-  if (this->msg_type() != 0) {
+  if (this->_internal_msg_type() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_msg_type());
   }
 
   // .CIM.Def.CIMSessionType session_type = 8;
-  if (this->session_type() != 0) {
+  if (this->_internal_session_type() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_session_type());
   }
@@ -504,37 +527,37 @@ void CIMMsgData::CheckTypeAndMergeFrom(
 void CIMMsgData::MergeFrom(const CIMMsgData& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:CIM.Message.CIMMsgData)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.from_nick_name().size() > 0) {
+  if (!from._internal_from_nick_name().empty()) {
     _internal_set_from_nick_name(from._internal_from_nick_name());
   }
-  if (from.client_msg_id().size() > 0) {
+  if (!from._internal_client_msg_id().empty()) {
     _internal_set_client_msg_id(from._internal_client_msg_id());
   }
-  if (from.msg_data().size() > 0) {
+  if (!from._internal_msg_data().empty()) {
     _internal_set_msg_data(from._internal_msg_data());
   }
-  if (from.from_user_id() != 0) {
+  if (from._internal_from_user_id() != 0) {
     _internal_set_from_user_id(from._internal_from_user_id());
   }
-  if (from.to_session_id() != 0) {
+  if (from._internal_to_session_id() != 0) {
     _internal_set_to_session_id(from._internal_to_session_id());
   }
-  if (from.server_msg_id() != 0) {
+  if (from._internal_server_msg_id() != 0) {
     _internal_set_server_msg_id(from._internal_server_msg_id());
   }
-  if (from.create_time() != 0) {
+  if (from._internal_create_time() != 0) {
     _internal_set_create_time(from._internal_create_time());
   }
-  if (from.msg_type() != 0) {
+  if (from._internal_msg_type() != 0) {
     _internal_set_msg_type(from._internal_msg_type());
   }
-  if (from.session_type() != 0) {
+  if (from._internal_session_type() != 0) {
     _internal_set_session_type(from._internal_session_type());
   }
+  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
 
 void CIMMsgData::CopyFrom(const CIMMsgData& from) {
@@ -550,10 +573,24 @@ bool CIMMsgData::IsInitialized() const {
 
 void CIMMsgData::InternalSwap(CIMMsgData* other) {
   using std::swap;
-  _internal_metadata_.Swap<std::string>(&other->_internal_metadata_);
-  from_nick_name_.Swap(&other->from_nick_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  client_msg_id_.Swap(&other->client_msg_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  msg_data_.Swap(&other->msg_data_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &from_nick_name_, lhs_arena,
+      &other->from_nick_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &client_msg_id_, lhs_arena,
+      &other->client_msg_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &msg_data_, lhs_arena,
+      &other->msg_data_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CIMMsgData, session_type_)
       + sizeof(CIMMsgData::session_type_)
@@ -573,19 +610,25 @@ class CIMMsgDataAck::_Internal {
  public:
 };
 
-CIMMsgDataAck::CIMMsgDataAck(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena) {
+CIMMsgDataAck::CIMMsgDataAck(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:CIM.Message.CIMMsgDataAck)
 }
 CIMMsgDataAck::CIMMsgDataAck(const CIMMsgDataAck& from)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
   client_msg_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    client_msg_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_client_msg_id().empty()) {
     client_msg_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_client_msg_id(), 
-      GetArena());
+      GetArenaForAllocation());
   }
   ::memcpy(&from_user_id_, &from.from_user_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&create_time_) -
@@ -593,8 +636,11 @@ CIMMsgDataAck::CIMMsgDataAck(const CIMMsgDataAck& from)
   // @@protoc_insertion_point(copy_constructor:CIM.Message.CIMMsgDataAck)
 }
 
-void CIMMsgDataAck::SharedCtor() {
+inline void CIMMsgDataAck::SharedCtor() {
 client_msg_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  client_msg_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&from_user_id_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&create_time_) -
@@ -603,12 +649,13 @@ client_msg_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStri
 
 CIMMsgDataAck::~CIMMsgDataAck() {
   // @@protoc_insertion_point(destructor:CIM.Message.CIMMsgDataAck)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<std::string>();
 }
 
-void CIMMsgDataAck::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void CIMMsgDataAck::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   client_msg_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -624,7 +671,7 @@ void CIMMsgDataAck::SetCachedSize(int size) const {
 
 void CIMMsgDataAck::Clear() {
 // @@protoc_insertion_point(message_clear_start:CIM.Message.CIMMsgDataAck)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -638,105 +685,112 @@ void CIMMsgDataAck::Clear() {
 const char* CIMMsgDataAck::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // uint64 from_user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           from_user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 to_session_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           to_session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // string client_msg_id = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_client_msg_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, nullptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 server_msg_id = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           server_msg_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .CIM.Def.CIMResCode res_code = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_res_code(static_cast<::CIM::Def::CIMResCode>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .CIM.Def.CIMSessionType session_type = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_session_type(static_cast<::CIM::Def::CIMSessionType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // int32 create_time = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
-          create_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          create_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<std::string>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CIMMsgDataAck::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* CIMMsgDataAck::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:CIM.Message.CIMMsgDataAck)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint64 from_user_id = 1;
-  if (this->from_user_id() != 0) {
+  if (this->_internal_from_user_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_from_user_id(), target);
   }
 
   // uint64 to_session_id = 2;
-  if (this->to_session_id() != 0) {
+  if (this->_internal_to_session_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_to_session_id(), target);
   }
 
   // string client_msg_id = 3;
-  if (this->client_msg_id().size() > 0) {
+  if (!this->_internal_client_msg_id().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_client_msg_id().data(), static_cast<int>(this->_internal_client_msg_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -746,27 +800,27 @@ failure:
   }
 
   // uint64 server_msg_id = 4;
-  if (this->server_msg_id() != 0) {
+  if (this->_internal_server_msg_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_server_msg_id(), target);
   }
 
   // .CIM.Def.CIMResCode res_code = 5;
-  if (this->res_code() != 0) {
+  if (this->_internal_res_code() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       5, this->_internal_res_code(), target);
   }
 
   // .CIM.Def.CIMSessionType session_type = 6;
-  if (this->session_type() != 0) {
+  if (this->_internal_session_type() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       6, this->_internal_session_type(), target);
   }
 
   // int32 create_time = 7;
-  if (this->create_time() != 0) {
+  if (this->_internal_create_time() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(7, this->_internal_create_time(), target);
   }
@@ -783,55 +837,47 @@ size_t CIMMsgDataAck::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CIM.Message.CIMMsgDataAck)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string client_msg_id = 3;
-  if (this->client_msg_id().size() > 0) {
+  if (!this->_internal_client_msg_id().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_client_msg_id());
   }
 
   // uint64 from_user_id = 1;
-  if (this->from_user_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_from_user_id());
+  if (this->_internal_from_user_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_from_user_id());
   }
 
   // uint64 to_session_id = 2;
-  if (this->to_session_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_to_session_id());
+  if (this->_internal_to_session_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_to_session_id());
   }
 
   // uint64 server_msg_id = 4;
-  if (this->server_msg_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_server_msg_id());
+  if (this->_internal_server_msg_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_server_msg_id());
   }
 
   // .CIM.Def.CIMResCode res_code = 5;
-  if (this->res_code() != 0) {
+  if (this->_internal_res_code() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_res_code());
   }
 
   // .CIM.Def.CIMSessionType session_type = 6;
-  if (this->session_type() != 0) {
+  if (this->_internal_session_type() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_session_type());
   }
 
   // int32 create_time = 7;
-  if (this->create_time() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_create_time());
+  if (this->_internal_create_time() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_create_time());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -851,31 +897,31 @@ void CIMMsgDataAck::CheckTypeAndMergeFrom(
 void CIMMsgDataAck::MergeFrom(const CIMMsgDataAck& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:CIM.Message.CIMMsgDataAck)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.client_msg_id().size() > 0) {
+  if (!from._internal_client_msg_id().empty()) {
     _internal_set_client_msg_id(from._internal_client_msg_id());
   }
-  if (from.from_user_id() != 0) {
+  if (from._internal_from_user_id() != 0) {
     _internal_set_from_user_id(from._internal_from_user_id());
   }
-  if (from.to_session_id() != 0) {
+  if (from._internal_to_session_id() != 0) {
     _internal_set_to_session_id(from._internal_to_session_id());
   }
-  if (from.server_msg_id() != 0) {
+  if (from._internal_server_msg_id() != 0) {
     _internal_set_server_msg_id(from._internal_server_msg_id());
   }
-  if (from.res_code() != 0) {
+  if (from._internal_res_code() != 0) {
     _internal_set_res_code(from._internal_res_code());
   }
-  if (from.session_type() != 0) {
+  if (from._internal_session_type() != 0) {
     _internal_set_session_type(from._internal_session_type());
   }
-  if (from.create_time() != 0) {
+  if (from._internal_create_time() != 0) {
     _internal_set_create_time(from._internal_create_time());
   }
+  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
 
 void CIMMsgDataAck::CopyFrom(const CIMMsgDataAck& from) {
@@ -891,8 +937,14 @@ bool CIMMsgDataAck::IsInitialized() const {
 
 void CIMMsgDataAck::InternalSwap(CIMMsgDataAck* other) {
   using std::swap;
-  _internal_metadata_.Swap<std::string>(&other->_internal_metadata_);
-  client_msg_id_.Swap(&other->client_msg_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &client_msg_id_, lhs_arena,
+      &other->client_msg_id_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CIMMsgDataAck, create_time_)
       + sizeof(CIMMsgDataAck::create_time_)
@@ -912,10 +964,13 @@ class CIMMsgDataReadAck::_Internal {
  public:
 };
 
-CIMMsgDataReadAck::CIMMsgDataReadAck(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena) {
+CIMMsgDataReadAck::CIMMsgDataReadAck(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:CIM.Message.CIMMsgDataReadAck)
 }
 CIMMsgDataReadAck::CIMMsgDataReadAck(const CIMMsgDataReadAck& from)
@@ -927,7 +982,7 @@ CIMMsgDataReadAck::CIMMsgDataReadAck(const CIMMsgDataReadAck& from)
   // @@protoc_insertion_point(copy_constructor:CIM.Message.CIMMsgDataReadAck)
 }
 
-void CIMMsgDataReadAck::SharedCtor() {
+inline void CIMMsgDataReadAck::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&user_id_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&session_type_) -
@@ -936,12 +991,13 @@ void CIMMsgDataReadAck::SharedCtor() {
 
 CIMMsgDataReadAck::~CIMMsgDataReadAck() {
   // @@protoc_insertion_point(destructor:CIM.Message.CIMMsgDataReadAck)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<std::string>();
 }
 
-void CIMMsgDataReadAck::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void CIMMsgDataReadAck::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void CIMMsgDataReadAck::ArenaDtor(void* object) {
@@ -956,7 +1012,7 @@ void CIMMsgDataReadAck::SetCachedSize(int size) const {
 
 void CIMMsgDataReadAck::Clear() {
 // @@protoc_insertion_point(message_clear_start:CIM.Message.CIMMsgDataReadAck)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -969,87 +1025,91 @@ void CIMMsgDataReadAck::Clear() {
 const char* CIMMsgDataReadAck::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // uint64 user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 session_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 msg_id = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           msg_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .CIM.Def.CIMSessionType session_type = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_session_type(static_cast<::CIM::Def::CIMSessionType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<std::string>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CIMMsgDataReadAck::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* CIMMsgDataReadAck::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:CIM.Message.CIMMsgDataReadAck)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint64 user_id = 1;
-  if (this->user_id() != 0) {
+  if (this->_internal_user_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_user_id(), target);
   }
 
   // uint64 session_id = 2;
-  if (this->session_id() != 0) {
+  if (this->_internal_session_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_session_id(), target);
   }
 
   // uint64 msg_id = 3;
-  if (this->msg_id() != 0) {
+  if (this->_internal_msg_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_msg_id(), target);
   }
 
   // .CIM.Def.CIMSessionType session_type = 4;
-  if (this->session_type() != 0) {
+  if (this->_internal_session_type() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       4, this->_internal_session_type(), target);
@@ -1067,33 +1127,27 @@ size_t CIMMsgDataReadAck::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CIM.Message.CIMMsgDataReadAck)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // uint64 user_id = 1;
-  if (this->user_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_user_id());
+  if (this->_internal_user_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_user_id());
   }
 
   // uint64 session_id = 2;
-  if (this->session_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_session_id());
+  if (this->_internal_session_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_session_id());
   }
 
   // uint64 msg_id = 3;
-  if (this->msg_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_msg_id());
+  if (this->_internal_msg_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_msg_id());
   }
 
   // .CIM.Def.CIMSessionType session_type = 4;
-  if (this->session_type() != 0) {
+  if (this->_internal_session_type() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_session_type());
   }
@@ -1115,22 +1169,22 @@ void CIMMsgDataReadAck::CheckTypeAndMergeFrom(
 void CIMMsgDataReadAck::MergeFrom(const CIMMsgDataReadAck& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:CIM.Message.CIMMsgDataReadAck)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.user_id() != 0) {
+  if (from._internal_user_id() != 0) {
     _internal_set_user_id(from._internal_user_id());
   }
-  if (from.session_id() != 0) {
+  if (from._internal_session_id() != 0) {
     _internal_set_session_id(from._internal_session_id());
   }
-  if (from.msg_id() != 0) {
+  if (from._internal_msg_id() != 0) {
     _internal_set_msg_id(from._internal_msg_id());
   }
-  if (from.session_type() != 0) {
+  if (from._internal_session_type() != 0) {
     _internal_set_session_type(from._internal_session_type());
   }
+  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
 
 void CIMMsgDataReadAck::CopyFrom(const CIMMsgDataReadAck& from) {
@@ -1146,7 +1200,7 @@ bool CIMMsgDataReadAck::IsInitialized() const {
 
 void CIMMsgDataReadAck::InternalSwap(CIMMsgDataReadAck* other) {
   using std::swap;
-  _internal_metadata_.Swap<std::string>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CIMMsgDataReadAck, session_type_)
       + sizeof(CIMMsgDataReadAck::session_type_)
@@ -1166,10 +1220,13 @@ class CIMMsgDataReadNotify::_Internal {
  public:
 };
 
-CIMMsgDataReadNotify::CIMMsgDataReadNotify(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena) {
+CIMMsgDataReadNotify::CIMMsgDataReadNotify(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:CIM.Message.CIMMsgDataReadNotify)
 }
 CIMMsgDataReadNotify::CIMMsgDataReadNotify(const CIMMsgDataReadNotify& from)
@@ -1181,7 +1238,7 @@ CIMMsgDataReadNotify::CIMMsgDataReadNotify(const CIMMsgDataReadNotify& from)
   // @@protoc_insertion_point(copy_constructor:CIM.Message.CIMMsgDataReadNotify)
 }
 
-void CIMMsgDataReadNotify::SharedCtor() {
+inline void CIMMsgDataReadNotify::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&user_id_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&session_type_) -
@@ -1190,12 +1247,13 @@ void CIMMsgDataReadNotify::SharedCtor() {
 
 CIMMsgDataReadNotify::~CIMMsgDataReadNotify() {
   // @@protoc_insertion_point(destructor:CIM.Message.CIMMsgDataReadNotify)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<std::string>();
 }
 
-void CIMMsgDataReadNotify::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void CIMMsgDataReadNotify::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void CIMMsgDataReadNotify::ArenaDtor(void* object) {
@@ -1210,7 +1268,7 @@ void CIMMsgDataReadNotify::SetCachedSize(int size) const {
 
 void CIMMsgDataReadNotify::Clear() {
 // @@protoc_insertion_point(message_clear_start:CIM.Message.CIMMsgDataReadNotify)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1223,87 +1281,91 @@ void CIMMsgDataReadNotify::Clear() {
 const char* CIMMsgDataReadNotify::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // uint64 user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 session_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 msg_id = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           msg_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .CIM.Def.CIMSessionType session_type = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_session_type(static_cast<::CIM::Def::CIMSessionType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<std::string>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CIMMsgDataReadNotify::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* CIMMsgDataReadNotify::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:CIM.Message.CIMMsgDataReadNotify)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint64 user_id = 1;
-  if (this->user_id() != 0) {
+  if (this->_internal_user_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_user_id(), target);
   }
 
   // uint64 session_id = 2;
-  if (this->session_id() != 0) {
+  if (this->_internal_session_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_session_id(), target);
   }
 
   // uint64 msg_id = 3;
-  if (this->msg_id() != 0) {
+  if (this->_internal_msg_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_msg_id(), target);
   }
 
   // .CIM.Def.CIMSessionType session_type = 4;
-  if (this->session_type() != 0) {
+  if (this->_internal_session_type() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       4, this->_internal_session_type(), target);
@@ -1321,33 +1383,27 @@ size_t CIMMsgDataReadNotify::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CIM.Message.CIMMsgDataReadNotify)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // uint64 user_id = 1;
-  if (this->user_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_user_id());
+  if (this->_internal_user_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_user_id());
   }
 
   // uint64 session_id = 2;
-  if (this->session_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_session_id());
+  if (this->_internal_session_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_session_id());
   }
 
   // uint64 msg_id = 3;
-  if (this->msg_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_msg_id());
+  if (this->_internal_msg_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_msg_id());
   }
 
   // .CIM.Def.CIMSessionType session_type = 4;
-  if (this->session_type() != 0) {
+  if (this->_internal_session_type() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_session_type());
   }
@@ -1369,22 +1425,22 @@ void CIMMsgDataReadNotify::CheckTypeAndMergeFrom(
 void CIMMsgDataReadNotify::MergeFrom(const CIMMsgDataReadNotify& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:CIM.Message.CIMMsgDataReadNotify)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.user_id() != 0) {
+  if (from._internal_user_id() != 0) {
     _internal_set_user_id(from._internal_user_id());
   }
-  if (from.session_id() != 0) {
+  if (from._internal_session_id() != 0) {
     _internal_set_session_id(from._internal_session_id());
   }
-  if (from.msg_id() != 0) {
+  if (from._internal_msg_id() != 0) {
     _internal_set_msg_id(from._internal_msg_id());
   }
-  if (from.session_type() != 0) {
+  if (from._internal_session_type() != 0) {
     _internal_set_session_type(from._internal_session_type());
   }
+  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
 
 void CIMMsgDataReadNotify::CopyFrom(const CIMMsgDataReadNotify& from) {
@@ -1400,7 +1456,7 @@ bool CIMMsgDataReadNotify::IsInitialized() const {
 
 void CIMMsgDataReadNotify::InternalSwap(CIMMsgDataReadNotify* other) {
   using std::swap;
-  _internal_metadata_.Swap<std::string>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CIMMsgDataReadNotify, session_type_)
       + sizeof(CIMMsgDataReadNotify::session_type_)
@@ -1420,10 +1476,13 @@ class CIMGetLatestMsgIdReq::_Internal {
  public:
 };
 
-CIMGetLatestMsgIdReq::CIMGetLatestMsgIdReq(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena) {
+CIMGetLatestMsgIdReq::CIMGetLatestMsgIdReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:CIM.Message.CIMGetLatestMsgIdReq)
 }
 CIMGetLatestMsgIdReq::CIMGetLatestMsgIdReq(const CIMGetLatestMsgIdReq& from)
@@ -1435,7 +1494,7 @@ CIMGetLatestMsgIdReq::CIMGetLatestMsgIdReq(const CIMGetLatestMsgIdReq& from)
   // @@protoc_insertion_point(copy_constructor:CIM.Message.CIMGetLatestMsgIdReq)
 }
 
-void CIMGetLatestMsgIdReq::SharedCtor() {
+inline void CIMGetLatestMsgIdReq::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&user_id_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&session_type_) -
@@ -1444,12 +1503,13 @@ void CIMGetLatestMsgIdReq::SharedCtor() {
 
 CIMGetLatestMsgIdReq::~CIMGetLatestMsgIdReq() {
   // @@protoc_insertion_point(destructor:CIM.Message.CIMGetLatestMsgIdReq)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<std::string>();
 }
 
-void CIMGetLatestMsgIdReq::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void CIMGetLatestMsgIdReq::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void CIMGetLatestMsgIdReq::ArenaDtor(void* object) {
@@ -1464,7 +1524,7 @@ void CIMGetLatestMsgIdReq::SetCachedSize(int size) const {
 
 void CIMGetLatestMsgIdReq::Clear() {
 // @@protoc_insertion_point(message_clear_start:CIM.Message.CIMGetLatestMsgIdReq)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1477,75 +1537,78 @@ void CIMGetLatestMsgIdReq::Clear() {
 const char* CIMGetLatestMsgIdReq::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // uint64 user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .CIM.Def.CIMSessionType session_type = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_session_type(static_cast<::CIM::Def::CIMSessionType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 session_id = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<std::string>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CIMGetLatestMsgIdReq::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* CIMGetLatestMsgIdReq::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:CIM.Message.CIMGetLatestMsgIdReq)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint64 user_id = 1;
-  if (this->user_id() != 0) {
+  if (this->_internal_user_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_user_id(), target);
   }
 
   // .CIM.Def.CIMSessionType session_type = 2;
-  if (this->session_type() != 0) {
+  if (this->_internal_session_type() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_session_type(), target);
   }
 
   // uint64 session_id = 3;
-  if (this->session_id() != 0) {
+  if (this->_internal_session_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_session_id(), target);
   }
@@ -1562,26 +1625,22 @@ size_t CIMGetLatestMsgIdReq::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CIM.Message.CIMGetLatestMsgIdReq)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // uint64 user_id = 1;
-  if (this->user_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_user_id());
+  if (this->_internal_user_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_user_id());
   }
 
   // uint64 session_id = 3;
-  if (this->session_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_session_id());
+  if (this->_internal_session_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_session_id());
   }
 
   // .CIM.Def.CIMSessionType session_type = 2;
-  if (this->session_type() != 0) {
+  if (this->_internal_session_type() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_session_type());
   }
@@ -1603,19 +1662,19 @@ void CIMGetLatestMsgIdReq::CheckTypeAndMergeFrom(
 void CIMGetLatestMsgIdReq::MergeFrom(const CIMGetLatestMsgIdReq& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:CIM.Message.CIMGetLatestMsgIdReq)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.user_id() != 0) {
+  if (from._internal_user_id() != 0) {
     _internal_set_user_id(from._internal_user_id());
   }
-  if (from.session_id() != 0) {
+  if (from._internal_session_id() != 0) {
     _internal_set_session_id(from._internal_session_id());
   }
-  if (from.session_type() != 0) {
+  if (from._internal_session_type() != 0) {
     _internal_set_session_type(from._internal_session_type());
   }
+  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
 
 void CIMGetLatestMsgIdReq::CopyFrom(const CIMGetLatestMsgIdReq& from) {
@@ -1631,7 +1690,7 @@ bool CIMGetLatestMsgIdReq::IsInitialized() const {
 
 void CIMGetLatestMsgIdReq::InternalSwap(CIMGetLatestMsgIdReq* other) {
   using std::swap;
-  _internal_metadata_.Swap<std::string>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CIMGetLatestMsgIdReq, session_type_)
       + sizeof(CIMGetLatestMsgIdReq::session_type_)
@@ -1651,19 +1710,25 @@ class CIMGetLatestMsgIdRsp::_Internal {
  public:
 };
 
-CIMGetLatestMsgIdRsp::CIMGetLatestMsgIdRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena) {
+CIMGetLatestMsgIdRsp::CIMGetLatestMsgIdRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:CIM.Message.CIMGetLatestMsgIdRsp)
 }
 CIMGetLatestMsgIdRsp::CIMGetLatestMsgIdRsp(const CIMGetLatestMsgIdRsp& from)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
   latest_msg_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    latest_msg_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_latest_msg_id().empty()) {
     latest_msg_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_latest_msg_id(), 
-      GetArena());
+      GetArenaForAllocation());
   }
   ::memcpy(&user_id_, &from.user_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&session_type_) -
@@ -1671,8 +1736,11 @@ CIMGetLatestMsgIdRsp::CIMGetLatestMsgIdRsp(const CIMGetLatestMsgIdRsp& from)
   // @@protoc_insertion_point(copy_constructor:CIM.Message.CIMGetLatestMsgIdRsp)
 }
 
-void CIMGetLatestMsgIdRsp::SharedCtor() {
+inline void CIMGetLatestMsgIdRsp::SharedCtor() {
 latest_msg_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  latest_msg_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&user_id_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&session_type_) -
@@ -1681,12 +1749,13 @@ latest_msg_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStri
 
 CIMGetLatestMsgIdRsp::~CIMGetLatestMsgIdRsp() {
   // @@protoc_insertion_point(destructor:CIM.Message.CIMGetLatestMsgIdRsp)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<std::string>();
 }
 
-void CIMGetLatestMsgIdRsp::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void CIMGetLatestMsgIdRsp::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   latest_msg_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -1702,7 +1771,7 @@ void CIMGetLatestMsgIdRsp::SetCachedSize(int size) const {
 
 void CIMGetLatestMsgIdRsp::Clear() {
 // @@protoc_insertion_point(message_clear_start:CIM.Message.CIMGetLatestMsgIdRsp)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1716,90 +1785,94 @@ void CIMGetLatestMsgIdRsp::Clear() {
 const char* CIMGetLatestMsgIdRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // uint64 user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .CIM.Def.CIMSessionType session_type = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_session_type(static_cast<::CIM::Def::CIMSessionType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 session_id = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // string latest_msg_id = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           auto str = _internal_mutable_latest_msg_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, nullptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<std::string>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CIMGetLatestMsgIdRsp::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* CIMGetLatestMsgIdRsp::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:CIM.Message.CIMGetLatestMsgIdRsp)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint64 user_id = 1;
-  if (this->user_id() != 0) {
+  if (this->_internal_user_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_user_id(), target);
   }
 
   // .CIM.Def.CIMSessionType session_type = 2;
-  if (this->session_type() != 0) {
+  if (this->_internal_session_type() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_session_type(), target);
   }
 
   // uint64 session_id = 3;
-  if (this->session_id() != 0) {
+  if (this->_internal_session_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_session_id(), target);
   }
 
   // string latest_msg_id = 4;
-  if (this->latest_msg_id().size() > 0) {
+  if (!this->_internal_latest_msg_id().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_latest_msg_id().data(), static_cast<int>(this->_internal_latest_msg_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -1820,33 +1893,29 @@ size_t CIMGetLatestMsgIdRsp::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CIM.Message.CIMGetLatestMsgIdRsp)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string latest_msg_id = 4;
-  if (this->latest_msg_id().size() > 0) {
+  if (!this->_internal_latest_msg_id().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_latest_msg_id());
   }
 
   // uint64 user_id = 1;
-  if (this->user_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_user_id());
+  if (this->_internal_user_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_user_id());
   }
 
   // uint64 session_id = 3;
-  if (this->session_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_session_id());
+  if (this->_internal_session_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_session_id());
   }
 
   // .CIM.Def.CIMSessionType session_type = 2;
-  if (this->session_type() != 0) {
+  if (this->_internal_session_type() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_session_type());
   }
@@ -1868,22 +1937,22 @@ void CIMGetLatestMsgIdRsp::CheckTypeAndMergeFrom(
 void CIMGetLatestMsgIdRsp::MergeFrom(const CIMGetLatestMsgIdRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:CIM.Message.CIMGetLatestMsgIdRsp)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.latest_msg_id().size() > 0) {
+  if (!from._internal_latest_msg_id().empty()) {
     _internal_set_latest_msg_id(from._internal_latest_msg_id());
   }
-  if (from.user_id() != 0) {
+  if (from._internal_user_id() != 0) {
     _internal_set_user_id(from._internal_user_id());
   }
-  if (from.session_id() != 0) {
+  if (from._internal_session_id() != 0) {
     _internal_set_session_id(from._internal_session_id());
   }
-  if (from.session_type() != 0) {
+  if (from._internal_session_type() != 0) {
     _internal_set_session_type(from._internal_session_type());
   }
+  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
 
 void CIMGetLatestMsgIdRsp::CopyFrom(const CIMGetLatestMsgIdRsp& from) {
@@ -1899,8 +1968,14 @@ bool CIMGetLatestMsgIdRsp::IsInitialized() const {
 
 void CIMGetLatestMsgIdRsp::InternalSwap(CIMGetLatestMsgIdRsp* other) {
   using std::swap;
-  _internal_metadata_.Swap<std::string>(&other->_internal_metadata_);
-  latest_msg_id_.Swap(&other->latest_msg_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &latest_msg_id_, lhs_arena,
+      &other->latest_msg_id_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CIMGetLatestMsgIdRsp, session_type_)
       + sizeof(CIMGetLatestMsgIdRsp::session_type_)
@@ -1920,11 +1995,14 @@ class CIMGetMsgByIdReq::_Internal {
  public:
 };
 
-CIMGetMsgByIdReq::CIMGetMsgByIdReq(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena),
+CIMGetMsgByIdReq::CIMGetMsgByIdReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
   msg_id_list_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:CIM.Message.CIMGetMsgByIdReq)
 }
 CIMGetMsgByIdReq::CIMGetMsgByIdReq(const CIMGetMsgByIdReq& from)
@@ -1937,7 +2015,7 @@ CIMGetMsgByIdReq::CIMGetMsgByIdReq(const CIMGetMsgByIdReq& from)
   // @@protoc_insertion_point(copy_constructor:CIM.Message.CIMGetMsgByIdReq)
 }
 
-void CIMGetMsgByIdReq::SharedCtor() {
+inline void CIMGetMsgByIdReq::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&user_id_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&session_type_) -
@@ -1946,12 +2024,13 @@ void CIMGetMsgByIdReq::SharedCtor() {
 
 CIMGetMsgByIdReq::~CIMGetMsgByIdReq() {
   // @@protoc_insertion_point(destructor:CIM.Message.CIMGetMsgByIdReq)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<std::string>();
 }
 
-void CIMGetMsgByIdReq::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void CIMGetMsgByIdReq::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void CIMGetMsgByIdReq::ArenaDtor(void* object) {
@@ -1966,7 +2045,7 @@ void CIMGetMsgByIdReq::SetCachedSize(int size) const {
 
 void CIMGetMsgByIdReq::Clear() {
 // @@protoc_insertion_point(message_clear_start:CIM.Message.CIMGetMsgByIdReq)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1980,35 +2059,37 @@ void CIMGetMsgByIdReq::Clear() {
 const char* CIMGetMsgByIdReq::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // uint64 user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .CIM.Def.CIMSessionType session_type = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_session_type(static_cast<::CIM::Def::CIMSessionType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 session_id = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated string msg_id_list = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -2018,51 +2099,53 @@ const char* CIMGetMsgByIdReq::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<std::string>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CIMGetMsgByIdReq::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* CIMGetMsgByIdReq::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:CIM.Message.CIMGetMsgByIdReq)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint64 user_id = 1;
-  if (this->user_id() != 0) {
+  if (this->_internal_user_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_user_id(), target);
   }
 
   // .CIM.Def.CIMSessionType session_type = 2;
-  if (this->session_type() != 0) {
+  if (this->_internal_session_type() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_session_type(), target);
   }
 
   // uint64 session_id = 3;
-  if (this->session_id() != 0) {
+  if (this->_internal_session_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_session_id(), target);
   }
@@ -2089,7 +2172,7 @@ size_t CIMGetMsgByIdReq::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CIM.Message.CIMGetMsgByIdReq)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2102,21 +2185,17 @@ size_t CIMGetMsgByIdReq::ByteSizeLong() const {
   }
 
   // uint64 user_id = 1;
-  if (this->user_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_user_id());
+  if (this->_internal_user_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_user_id());
   }
 
   // uint64 session_id = 3;
-  if (this->session_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_session_id());
+  if (this->_internal_session_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_session_id());
   }
 
   // .CIM.Def.CIMSessionType session_type = 2;
-  if (this->session_type() != 0) {
+  if (this->_internal_session_type() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_session_type());
   }
@@ -2138,20 +2217,20 @@ void CIMGetMsgByIdReq::CheckTypeAndMergeFrom(
 void CIMGetMsgByIdReq::MergeFrom(const CIMGetMsgByIdReq& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:CIM.Message.CIMGetMsgByIdReq)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   msg_id_list_.MergeFrom(from.msg_id_list_);
-  if (from.user_id() != 0) {
+  if (from._internal_user_id() != 0) {
     _internal_set_user_id(from._internal_user_id());
   }
-  if (from.session_id() != 0) {
+  if (from._internal_session_id() != 0) {
     _internal_set_session_id(from._internal_session_id());
   }
-  if (from.session_type() != 0) {
+  if (from._internal_session_type() != 0) {
     _internal_set_session_type(from._internal_session_type());
   }
+  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
 
 void CIMGetMsgByIdReq::CopyFrom(const CIMGetMsgByIdReq& from) {
@@ -2167,7 +2246,7 @@ bool CIMGetMsgByIdReq::IsInitialized() const {
 
 void CIMGetMsgByIdReq::InternalSwap(CIMGetMsgByIdReq* other) {
   using std::swap;
-  _internal_metadata_.Swap<std::string>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   msg_id_list_.InternalSwap(&other->msg_id_list_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CIMGetMsgByIdReq, session_type_)
@@ -2191,11 +2270,14 @@ class CIMGetMsgByIdRsp::_Internal {
 void CIMGetMsgByIdRsp::clear_msg_list() {
   msg_list_.Clear();
 }
-CIMGetMsgByIdRsp::CIMGetMsgByIdRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena),
+CIMGetMsgByIdRsp::CIMGetMsgByIdRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
   msg_list_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:CIM.Message.CIMGetMsgByIdRsp)
 }
 CIMGetMsgByIdRsp::CIMGetMsgByIdRsp(const CIMGetMsgByIdRsp& from)
@@ -2208,7 +2290,7 @@ CIMGetMsgByIdRsp::CIMGetMsgByIdRsp(const CIMGetMsgByIdRsp& from)
   // @@protoc_insertion_point(copy_constructor:CIM.Message.CIMGetMsgByIdRsp)
 }
 
-void CIMGetMsgByIdRsp::SharedCtor() {
+inline void CIMGetMsgByIdRsp::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&user_id_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&session_type_) -
@@ -2217,12 +2299,13 @@ void CIMGetMsgByIdRsp::SharedCtor() {
 
 CIMGetMsgByIdRsp::~CIMGetMsgByIdRsp() {
   // @@protoc_insertion_point(destructor:CIM.Message.CIMGetMsgByIdRsp)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<std::string>();
 }
 
-void CIMGetMsgByIdRsp::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void CIMGetMsgByIdRsp::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void CIMGetMsgByIdRsp::ArenaDtor(void* object) {
@@ -2237,7 +2320,7 @@ void CIMGetMsgByIdRsp::SetCachedSize(int size) const {
 
 void CIMGetMsgByIdRsp::Clear() {
 // @@protoc_insertion_point(message_clear_start:CIM.Message.CIMGetMsgByIdRsp)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2251,35 +2334,37 @@ void CIMGetMsgByIdRsp::Clear() {
 const char* CIMGetMsgByIdRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // uint64 user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .CIM.Def.CIMSessionType session_type = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_session_type(static_cast<::CIM::Def::CIMSessionType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 session_id = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .CIM.Def.CIMMsgInfo msg_list = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -2287,51 +2372,53 @@ const char* CIMGetMsgByIdRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<std::string>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CIMGetMsgByIdRsp::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* CIMGetMsgByIdRsp::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:CIM.Message.CIMGetMsgByIdRsp)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint64 user_id = 1;
-  if (this->user_id() != 0) {
+  if (this->_internal_user_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_user_id(), target);
   }
 
   // .CIM.Def.CIMSessionType session_type = 2;
-  if (this->session_type() != 0) {
+  if (this->_internal_session_type() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_session_type(), target);
   }
 
   // uint64 session_id = 3;
-  if (this->session_id() != 0) {
+  if (this->_internal_session_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_session_id(), target);
   }
@@ -2356,7 +2443,7 @@ size_t CIMGetMsgByIdRsp::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CIM.Message.CIMGetMsgByIdRsp)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2368,21 +2455,17 @@ size_t CIMGetMsgByIdRsp::ByteSizeLong() const {
   }
 
   // uint64 user_id = 1;
-  if (this->user_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_user_id());
+  if (this->_internal_user_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_user_id());
   }
 
   // uint64 session_id = 3;
-  if (this->session_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_session_id());
+  if (this->_internal_session_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_session_id());
   }
 
   // .CIM.Def.CIMSessionType session_type = 2;
-  if (this->session_type() != 0) {
+  if (this->_internal_session_type() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_session_type());
   }
@@ -2404,20 +2487,20 @@ void CIMGetMsgByIdRsp::CheckTypeAndMergeFrom(
 void CIMGetMsgByIdRsp::MergeFrom(const CIMGetMsgByIdRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:CIM.Message.CIMGetMsgByIdRsp)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   msg_list_.MergeFrom(from.msg_list_);
-  if (from.user_id() != 0) {
+  if (from._internal_user_id() != 0) {
     _internal_set_user_id(from._internal_user_id());
   }
-  if (from.session_id() != 0) {
+  if (from._internal_session_id() != 0) {
     _internal_set_session_id(from._internal_session_id());
   }
-  if (from.session_type() != 0) {
+  if (from._internal_session_type() != 0) {
     _internal_set_session_type(from._internal_session_type());
   }
+  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
 
 void CIMGetMsgByIdRsp::CopyFrom(const CIMGetMsgByIdRsp& from) {
@@ -2433,7 +2516,7 @@ bool CIMGetMsgByIdRsp::IsInitialized() const {
 
 void CIMGetMsgByIdRsp::InternalSwap(CIMGetMsgByIdRsp* other) {
   using std::swap;
-  _internal_metadata_.Swap<std::string>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   msg_list_.InternalSwap(&other->msg_list_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CIMGetMsgByIdRsp, session_type_)
