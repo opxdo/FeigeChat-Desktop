@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.14)
 
 project(chatkit)
 
+#工程中使用vcpkg安装的库，改成自己的vcpkg安装目录
+#如果是Qt Creator中使用，请参考这篇文章：https://blog.csdn.net/xmcy001122/article/details/124900259
+#set(CMAKE_TOOLCHAIN_FILE "/Users/xuyc/repo/github/vcpkg/scripts/buildsystems/vcpkg.cmake")
+
 add_definitions(
         -g
         -fPIC
@@ -27,7 +31,7 @@ add_definitions(
 
 # 库名字和版本号设置
 set(ChatKitLib chatkit)
-set(ChatKitLib_VERSION 3.4.1)
+set(ChatKitLib_VERSION 0.1.0)
 
 # 源码文件
 aux_source_directory(cim CHAT_KIT_SRC)
