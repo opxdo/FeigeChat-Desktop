@@ -23,8 +23,7 @@ aux_source_directory(cim/pb CHAT_KIT_SRC)
 if (APPLE) # 使用vcpkg 快速安装的依赖
     #find_package(sdplog CONFIG REQUIRED)
     #find_package(unofficial-libuv CONFIG REQUIRED)
-    find_package(Protobuf CONFIG REQUIRED)
-
+    #find_package(Protobuf CONFIG REQUIRED)
     find_package(restclient-cpp CONFIG REQUIRED)
     find_package(SQLiteCpp CONFIG REQUIRED)
     find_package(nlohmann_json CONFIG REQUIRED)
@@ -65,7 +64,7 @@ target_link_libraries(${ChatKitLib}
         nlohmann_json::nlohmann_json
         # 自己编译的
         spdlog.a
-        libuv.a
+        uv.a
         libprotobuf-lite.a
         )
 

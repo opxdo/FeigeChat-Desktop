@@ -33,12 +33,15 @@ build_protobuf(){
     exit 0
   fi
 
-  cd $CUR_DIR/protobuf-3.20.1
+  cd $CUR_DIR/protobuf-3.19.4
   # 编译静态库、protoc执行文件
+  # --disable-shared: 编译静态库
+  ./autogen.sh
   ./configure --prefix=$LIB_DIR --with-protoc=protoc --disable-shared
   make -j && make install
+  make clean
 }
 
-#build_spdlog
-#build_libuv
+build_spdlog
+build_libuv
 build_protobuf

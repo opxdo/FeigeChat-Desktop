@@ -39,10 +39,6 @@ set(THIRD_INCLUDE_DIR
         ${PROJECT_SOURCE_DIR}/3rd-party/lib/include/    # protobuf
         )
 
-#set(OpenCV_INCLUDE_DIRS )
-#set(OpenCV_LIBRARIES )
-#add_library(protobuf::libprotobuf-lite ALIAS libprotobuf.a) # 库别名
-
 # 库
 add_subdirectory(chatkit)
 #add_subdirectory(feigechat)
