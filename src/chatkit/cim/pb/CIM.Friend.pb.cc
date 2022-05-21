@@ -13,33 +13,37 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace CIM {
 namespace Friend {
-constexpr CIMFriendQueryUserListReq::CIMFriendQueryUserListReq(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+PROTOBUF_CONSTEXPR CIMFriendQueryUserListReq::CIMFriendQueryUserListReq(
+    ::_pbi::ConstantInitialized)
   : user_id_(uint64_t{0u}){}
 struct CIMFriendQueryUserListReqDefaultTypeInternal {
-  constexpr CIMFriendQueryUserListReqDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR CIMFriendQueryUserListReqDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~CIMFriendQueryUserListReqDefaultTypeInternal() {}
   union {
     CIMFriendQueryUserListReq _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CIMFriendQueryUserListReqDefaultTypeInternal _CIMFriendQueryUserListReq_default_instance_;
-constexpr CIMFriendQueryUserListRsp::CIMFriendQueryUserListRsp(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CIMFriendQueryUserListReqDefaultTypeInternal _CIMFriendQueryUserListReq_default_instance_;
+PROTOBUF_CONSTEXPR CIMFriendQueryUserListRsp::CIMFriendQueryUserListRsp(
+    ::_pbi::ConstantInitialized)
   : user_info_list_()
   , user_id_(uint64_t{0u}){}
 struct CIMFriendQueryUserListRspDefaultTypeInternal {
-  constexpr CIMFriendQueryUserListRspDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR CIMFriendQueryUserListRspDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~CIMFriendQueryUserListRspDefaultTypeInternal() {}
   union {
     CIMFriendQueryUserListRsp _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CIMFriendQueryUserListRspDefaultTypeInternal _CIMFriendQueryUserListRsp_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CIMFriendQueryUserListRspDefaultTypeInternal _CIMFriendQueryUserListRsp_default_instance_;
 }  // namespace Friend
 }  // namespace CIM
 namespace CIM {
@@ -55,9 +59,6 @@ CIMFriendQueryUserListReq::CIMFriendQueryUserListReq(::PROTOBUF_NAMESPACE_ID::Ar
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
   // @@protoc_insertion_point(arena_constructor:CIM.Friend.CIMFriendQueryUserListReq)
 }
 CIMFriendQueryUserListReq::CIMFriendQueryUserListReq(const CIMFriendQueryUserListReq& from)
@@ -73,21 +74,17 @@ user_id_ = uint64_t{0u};
 
 CIMFriendQueryUserListReq::~CIMFriendQueryUserListReq() {
   // @@protoc_insertion_point(destructor:CIM.Friend.CIMFriendQueryUserListReq)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void CIMFriendQueryUserListReq::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void CIMFriendQueryUserListReq::ArenaDtor(void* object) {
-  CIMFriendQueryUserListReq* _this = reinterpret_cast< CIMFriendQueryUserListReq* >(object);
-  (void)_this;
-}
-void CIMFriendQueryUserListReq::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void CIMFriendQueryUserListReq::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
@@ -102,11 +99,11 @@ void CIMFriendQueryUserListReq::Clear() {
   _internal_metadata_.Clear<std::string>();
 }
 
-const char* CIMFriendQueryUserListReq::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CIMFriendQueryUserListReq::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint64 user_id = 1;
       case 1:
@@ -148,7 +145,7 @@ uint8_t* CIMFriendQueryUserListReq::_InternalSerialize(
   // uint64 user_id = 1;
   if (this->_internal_user_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_user_id(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_user_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -169,20 +166,20 @@ size_t CIMFriendQueryUserListReq::ByteSizeLong() const {
 
   // uint64 user_id = 1;
   if (this->_internal_user_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_user_id());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_user_id());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  int cached_size = ::_pbi::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
 void CIMFriendQueryUserListReq::CheckTypeAndMergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const CIMFriendQueryUserListReq*>(
+  MergeFrom(*::_pbi::DownCast<const CIMFriendQueryUserListReq*>(
       &from));
 }
 
@@ -234,9 +231,6 @@ CIMFriendQueryUserListRsp::CIMFriendQueryUserListRsp(::PROTOBUF_NAMESPACE_ID::Ar
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
   user_info_list_(arena) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
   // @@protoc_insertion_point(arena_constructor:CIM.Friend.CIMFriendQueryUserListRsp)
 }
 CIMFriendQueryUserListRsp::CIMFriendQueryUserListRsp(const CIMFriendQueryUserListRsp& from)
@@ -253,21 +247,17 @@ user_id_ = uint64_t{0u};
 
 CIMFriendQueryUserListRsp::~CIMFriendQueryUserListRsp() {
   // @@protoc_insertion_point(destructor:CIM.Friend.CIMFriendQueryUserListRsp)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void CIMFriendQueryUserListRsp::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void CIMFriendQueryUserListRsp::ArenaDtor(void* object) {
-  CIMFriendQueryUserListRsp* _this = reinterpret_cast< CIMFriendQueryUserListRsp* >(object);
-  (void)_this;
-}
-void CIMFriendQueryUserListRsp::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void CIMFriendQueryUserListRsp::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
@@ -283,11 +273,11 @@ void CIMFriendQueryUserListRsp::Clear() {
   _internal_metadata_.Clear<std::string>();
 }
 
-const char* CIMFriendQueryUserListRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CIMFriendQueryUserListRsp::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint64 user_id = 1;
       case 1:
@@ -342,15 +332,15 @@ uint8_t* CIMFriendQueryUserListRsp::_InternalSerialize(
   // uint64 user_id = 1;
   if (this->_internal_user_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_user_id(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_user_id(), target);
   }
 
   // repeated .CIM.Def.CIMUserInfo user_info_list = 2;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_user_info_list_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_user_info_list_size()); i < n; i++) {
+    const auto& repfield = this->_internal_user_info_list(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, this->_internal_user_info_list(i), target, stream);
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -378,20 +368,20 @@ size_t CIMFriendQueryUserListRsp::ByteSizeLong() const {
 
   // uint64 user_id = 1;
   if (this->_internal_user_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_user_id());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_user_id());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  int cached_size = ::_pbi::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
 void CIMFriendQueryUserListRsp::CheckTypeAndMergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const CIMFriendQueryUserListRsp*>(
+  MergeFrom(*::_pbi::DownCast<const CIMFriendQueryUserListRsp*>(
       &from));
 }
 
@@ -435,10 +425,12 @@ std::string CIMFriendQueryUserListRsp::GetTypeName() const {
 }  // namespace Friend
 }  // namespace CIM
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::CIM::Friend::CIMFriendQueryUserListReq* Arena::CreateMaybeMessage< ::CIM::Friend::CIMFriendQueryUserListReq >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::CIM::Friend::CIMFriendQueryUserListReq*
+Arena::CreateMaybeMessage< ::CIM::Friend::CIMFriendQueryUserListReq >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CIM::Friend::CIMFriendQueryUserListReq >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CIM::Friend::CIMFriendQueryUserListRsp* Arena::CreateMaybeMessage< ::CIM::Friend::CIMFriendQueryUserListRsp >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::CIM::Friend::CIMFriendQueryUserListRsp*
+Arena::CreateMaybeMessage< ::CIM::Friend::CIMFriendQueryUserListRsp >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CIM::Friend::CIMFriendQueryUserListRsp >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE

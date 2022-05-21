@@ -21,5 +21,24 @@ build_libuv(){
   cd .. && rm -rf build
 }
 
+build_protobuf(){
+  # see: https://github.com/protocolbuffers/protobuf/tree/main/src
+  echo "build_protobuf"
+
+  if [[ `uname -a` =~ "Darwin" ]]; then
+    echo "PS: 只需要安装一次，后续可以注释，加快编译protobuf速度！"
+    brew install autoconf automake libtool
+  else
+    echo "not support os!"
+    exit 0
+  fi
+
+  cd $CUR_DIR/protobuf-3.20.1
+  # 编译静态库、protoc执行文件
+  ./configure --prefix=$LIB_DIR --with-protoc=protoc --disable-shared
+  make -j && make install
+}
+
 #build_spdlog
-build_libuv
+#build_libuv
+build_protobuf

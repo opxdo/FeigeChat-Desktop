@@ -13,10 +13,14 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace CIM {
 namespace Voip {
-constexpr CIMVoipInviteReq::CIMVoipInviteReq(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+PROTOBUF_CONSTEXPR CIMVoipInviteReq::CIMVoipInviteReq(
+    ::_pbi::ConstantInitialized)
   : invite_user_list_()
   , _invite_user_list_cached_byte_size_(0)
   , channel_info_(nullptr)
@@ -24,96 +28,96 @@ constexpr CIMVoipInviteReq::CIMVoipInviteReq(
   , invite_type_(0)
 {}
 struct CIMVoipInviteReqDefaultTypeInternal {
-  constexpr CIMVoipInviteReqDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR CIMVoipInviteReqDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~CIMVoipInviteReqDefaultTypeInternal() {}
   union {
     CIMVoipInviteReq _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CIMVoipInviteReqDefaultTypeInternal _CIMVoipInviteReq_default_instance_;
-constexpr CIMVoipInviteReply::CIMVoipInviteReply(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CIMVoipInviteReqDefaultTypeInternal _CIMVoipInviteReq_default_instance_;
+PROTOBUF_CONSTEXPR CIMVoipInviteReply::CIMVoipInviteReply(
+    ::_pbi::ConstantInitialized)
   : channel_info_(nullptr)
   , user_id_(uint64_t{0u})
   , rsp_code_(0)
 {}
 struct CIMVoipInviteReplyDefaultTypeInternal {
-  constexpr CIMVoipInviteReplyDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR CIMVoipInviteReplyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~CIMVoipInviteReplyDefaultTypeInternal() {}
   union {
     CIMVoipInviteReply _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CIMVoipInviteReplyDefaultTypeInternal _CIMVoipInviteReply_default_instance_;
-constexpr CIMVoipInviteReplyAck::CIMVoipInviteReplyAck(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CIMVoipInviteReplyDefaultTypeInternal _CIMVoipInviteReply_default_instance_;
+PROTOBUF_CONSTEXPR CIMVoipInviteReplyAck::CIMVoipInviteReplyAck(
+    ::_pbi::ConstantInitialized)
   : channel_info_(nullptr){}
 struct CIMVoipInviteReplyAckDefaultTypeInternal {
-  constexpr CIMVoipInviteReplyAckDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR CIMVoipInviteReplyAckDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~CIMVoipInviteReplyAckDefaultTypeInternal() {}
   union {
     CIMVoipInviteReplyAck _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CIMVoipInviteReplyAckDefaultTypeInternal _CIMVoipInviteReplyAck_default_instance_;
-constexpr CIMVoipHeartbeat::CIMVoipHeartbeat(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CIMVoipInviteReplyAckDefaultTypeInternal _CIMVoipInviteReplyAck_default_instance_;
+PROTOBUF_CONSTEXPR CIMVoipHeartbeat::CIMVoipHeartbeat(
+    ::_pbi::ConstantInitialized){}
 struct CIMVoipHeartbeatDefaultTypeInternal {
-  constexpr CIMVoipHeartbeatDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR CIMVoipHeartbeatDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~CIMVoipHeartbeatDefaultTypeInternal() {}
   union {
     CIMVoipHeartbeat _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CIMVoipHeartbeatDefaultTypeInternal _CIMVoipHeartbeat_default_instance_;
-constexpr CIMVoipByeReq::CIMVoipByeReq(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CIMVoipHeartbeatDefaultTypeInternal _CIMVoipHeartbeat_default_instance_;
+PROTOBUF_CONSTEXPR CIMVoipByeReq::CIMVoipByeReq(
+    ::_pbi::ConstantInitialized)
   : channel_info_(nullptr)
   , local_call_time_len_(uint64_t{0u})
   , user_id_(uint64_t{0u})
   , bye_reason_(0)
 {}
 struct CIMVoipByeReqDefaultTypeInternal {
-  constexpr CIMVoipByeReqDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR CIMVoipByeReqDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~CIMVoipByeReqDefaultTypeInternal() {}
   union {
     CIMVoipByeReq _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CIMVoipByeReqDefaultTypeInternal _CIMVoipByeReq_default_instance_;
-constexpr CIMVoipByeRsp::CIMVoipByeRsp(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CIMVoipByeReqDefaultTypeInternal _CIMVoipByeReq_default_instance_;
+PROTOBUF_CONSTEXPR CIMVoipByeRsp::CIMVoipByeRsp(
+    ::_pbi::ConstantInitialized)
   : error_code_(0)
 {}
 struct CIMVoipByeRspDefaultTypeInternal {
-  constexpr CIMVoipByeRspDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR CIMVoipByeRspDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~CIMVoipByeRspDefaultTypeInternal() {}
   union {
     CIMVoipByeRsp _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CIMVoipByeRspDefaultTypeInternal _CIMVoipByeRsp_default_instance_;
-constexpr CIMVoipByeNotify::CIMVoipByeNotify(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CIMVoipByeRspDefaultTypeInternal _CIMVoipByeRsp_default_instance_;
+PROTOBUF_CONSTEXPR CIMVoipByeNotify::CIMVoipByeNotify(
+    ::_pbi::ConstantInitialized)
   : channel_info_(nullptr)
   , user_id_(uint64_t{0u})
   , byereason_(0)
 {}
 struct CIMVoipByeNotifyDefaultTypeInternal {
-  constexpr CIMVoipByeNotifyDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR CIMVoipByeNotifyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~CIMVoipByeNotifyDefaultTypeInternal() {}
   union {
     CIMVoipByeNotify _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CIMVoipByeNotifyDefaultTypeInternal _CIMVoipByeNotify_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CIMVoipByeNotifyDefaultTypeInternal _CIMVoipByeNotify_default_instance_;
 }  // namespace Voip
 }  // namespace CIM
 namespace CIM {
@@ -141,9 +145,6 @@ CIMVoipInviteReq::CIMVoipInviteReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
   invite_user_list_(arena) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
   // @@protoc_insertion_point(arena_constructor:CIM.Voip.CIMVoipInviteReq)
 }
 CIMVoipInviteReq::CIMVoipInviteReq(const CIMVoipInviteReq& from)
@@ -170,9 +171,11 @@ inline void CIMVoipInviteReq::SharedCtor() {
 
 CIMVoipInviteReq::~CIMVoipInviteReq() {
   // @@protoc_insertion_point(destructor:CIM.Voip.CIMVoipInviteReq)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void CIMVoipInviteReq::SharedDtor() {
@@ -180,12 +183,6 @@ inline void CIMVoipInviteReq::SharedDtor() {
   if (this != internal_default_instance()) delete channel_info_;
 }
 
-void CIMVoipInviteReq::ArenaDtor(void* object) {
-  CIMVoipInviteReq* _this = reinterpret_cast< CIMVoipInviteReq* >(object);
-  (void)_this;
-}
-void CIMVoipInviteReq::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void CIMVoipInviteReq::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
@@ -207,11 +204,11 @@ void CIMVoipInviteReq::Clear() {
   _internal_metadata_.Clear<std::string>();
 }
 
-const char* CIMVoipInviteReq::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CIMVoipInviteReq::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint64 creator_user_id = 1;
       case 1:
@@ -281,7 +278,7 @@ uint8_t* CIMVoipInviteReq::_InternalSerialize(
   // uint64 creator_user_id = 1;
   if (this->_internal_creator_user_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_creator_user_id(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_creator_user_id(), target);
   }
 
   // repeated uint64 invite_user_list = 2;
@@ -296,16 +293,15 @@ uint8_t* CIMVoipInviteReq::_InternalSerialize(
   // .CIM.Def.CIMVoipInviteType invite_type = 3;
   if (this->_internal_invite_type() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       3, this->_internal_invite_type(), target);
   }
 
   // .CIM.Def.CIMChannelInfo channel_info = 4;
   if (this->_internal_has_channel_info()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::channel_info(this), target, stream);
+      InternalWriteMessage(4, _Internal::channel_info(this),
+        _Internal::channel_info(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -326,14 +322,13 @@ size_t CIMVoipInviteReq::ByteSizeLong() const {
 
   // repeated uint64 invite_user_list = 2;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       UInt64Size(this->invite_user_list_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<int32_t>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _invite_user_list_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
@@ -348,26 +343,26 @@ size_t CIMVoipInviteReq::ByteSizeLong() const {
 
   // uint64 creator_user_id = 1;
   if (this->_internal_creator_user_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_creator_user_id());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_creator_user_id());
   }
 
   // .CIM.Def.CIMVoipInviteType invite_type = 3;
   if (this->_internal_invite_type() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_invite_type());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_invite_type());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  int cached_size = ::_pbi::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
 void CIMVoipInviteReq::CheckTypeAndMergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const CIMVoipInviteReq*>(
+  MergeFrom(*::_pbi::DownCast<const CIMVoipInviteReq*>(
       &from));
 }
 
@@ -439,9 +434,6 @@ CIMVoipInviteReply::CIMVoipInviteReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
   // @@protoc_insertion_point(arena_constructor:CIM.Voip.CIMVoipInviteReply)
 }
 CIMVoipInviteReply::CIMVoipInviteReply(const CIMVoipInviteReply& from)
@@ -467,9 +459,11 @@ inline void CIMVoipInviteReply::SharedCtor() {
 
 CIMVoipInviteReply::~CIMVoipInviteReply() {
   // @@protoc_insertion_point(destructor:CIM.Voip.CIMVoipInviteReply)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void CIMVoipInviteReply::SharedDtor() {
@@ -477,12 +471,6 @@ inline void CIMVoipInviteReply::SharedDtor() {
   if (this != internal_default_instance()) delete channel_info_;
 }
 
-void CIMVoipInviteReply::ArenaDtor(void* object) {
-  CIMVoipInviteReply* _this = reinterpret_cast< CIMVoipInviteReply* >(object);
-  (void)_this;
-}
-void CIMVoipInviteReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void CIMVoipInviteReply::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
@@ -503,11 +491,11 @@ void CIMVoipInviteReply::Clear() {
   _internal_metadata_.Clear<std::string>();
 }
 
-const char* CIMVoipInviteReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CIMVoipInviteReply::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint64 user_id = 1;
       case 1:
@@ -566,22 +554,21 @@ uint8_t* CIMVoipInviteReply::_InternalSerialize(
   // uint64 user_id = 1;
   if (this->_internal_user_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_user_id(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_user_id(), target);
   }
 
   // .CIM.Def.CIMInviteRspCode rsp_code = 2;
   if (this->_internal_rsp_code() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       2, this->_internal_rsp_code(), target);
   }
 
   // .CIM.Def.CIMChannelInfo channel_info = 3;
   if (this->_internal_has_channel_info()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::channel_info(this), target, stream);
+      InternalWriteMessage(3, _Internal::channel_info(this),
+        _Internal::channel_info(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -609,26 +596,26 @@ size_t CIMVoipInviteReply::ByteSizeLong() const {
 
   // uint64 user_id = 1;
   if (this->_internal_user_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_user_id());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_user_id());
   }
 
   // .CIM.Def.CIMInviteRspCode rsp_code = 2;
   if (this->_internal_rsp_code() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_rsp_code());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_rsp_code());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  int cached_size = ::_pbi::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
 void CIMVoipInviteReply::CheckTypeAndMergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const CIMVoipInviteReply*>(
+  MergeFrom(*::_pbi::DownCast<const CIMVoipInviteReply*>(
       &from));
 }
 
@@ -698,9 +685,6 @@ CIMVoipInviteReplyAck::CIMVoipInviteReplyAck(::PROTOBUF_NAMESPACE_ID::Arena* are
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
   // @@protoc_insertion_point(arena_constructor:CIM.Voip.CIMVoipInviteReplyAck)
 }
 CIMVoipInviteReplyAck::CIMVoipInviteReplyAck(const CIMVoipInviteReplyAck& from)
@@ -720,9 +704,11 @@ channel_info_ = nullptr;
 
 CIMVoipInviteReplyAck::~CIMVoipInviteReplyAck() {
   // @@protoc_insertion_point(destructor:CIM.Voip.CIMVoipInviteReplyAck)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void CIMVoipInviteReplyAck::SharedDtor() {
@@ -730,12 +716,6 @@ inline void CIMVoipInviteReplyAck::SharedDtor() {
   if (this != internal_default_instance()) delete channel_info_;
 }
 
-void CIMVoipInviteReplyAck::ArenaDtor(void* object) {
-  CIMVoipInviteReplyAck* _this = reinterpret_cast< CIMVoipInviteReplyAck* >(object);
-  (void)_this;
-}
-void CIMVoipInviteReplyAck::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void CIMVoipInviteReplyAck::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
@@ -753,11 +733,11 @@ void CIMVoipInviteReplyAck::Clear() {
   _internal_metadata_.Clear<std::string>();
 }
 
-const char* CIMVoipInviteReplyAck::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CIMVoipInviteReplyAck::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .CIM.Def.CIMChannelInfo channel_info = 1;
       case 1:
@@ -798,10 +778,9 @@ uint8_t* CIMVoipInviteReplyAck::_InternalSerialize(
 
   // .CIM.Def.CIMChannelInfo channel_info = 1;
   if (this->_internal_has_channel_info()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::channel_info(this), target, stream);
+      InternalWriteMessage(1, _Internal::channel_info(this),
+        _Internal::channel_info(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -830,14 +809,14 @@ size_t CIMVoipInviteReplyAck::ByteSizeLong() const {
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  int cached_size = ::_pbi::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
 void CIMVoipInviteReplyAck::CheckTypeAndMergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const CIMVoipInviteReplyAck*>(
+  MergeFrom(*::_pbi::DownCast<const CIMVoipInviteReplyAck*>(
       &from));
 }
 
@@ -885,9 +864,6 @@ CIMVoipHeartbeat::CIMVoipHeartbeat(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
   // @@protoc_insertion_point(arena_constructor:CIM.Voip.CIMVoipHeartbeat)
 }
 CIMVoipHeartbeat::CIMVoipHeartbeat(const CIMVoipHeartbeat& from)
@@ -901,21 +877,17 @@ inline void CIMVoipHeartbeat::SharedCtor() {
 
 CIMVoipHeartbeat::~CIMVoipHeartbeat() {
   // @@protoc_insertion_point(destructor:CIM.Voip.CIMVoipHeartbeat)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void CIMVoipHeartbeat::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void CIMVoipHeartbeat::ArenaDtor(void* object) {
-  CIMVoipHeartbeat* _this = reinterpret_cast< CIMVoipHeartbeat* >(object);
-  (void)_this;
-}
-void CIMVoipHeartbeat::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void CIMVoipHeartbeat::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
@@ -929,11 +901,11 @@ void CIMVoipHeartbeat::Clear() {
   _internal_metadata_.Clear<std::string>();
 }
 
-const char* CIMVoipHeartbeat::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CIMVoipHeartbeat::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     if ((tag == 0) || ((tag & 7) == 4)) {
       CHK_(ptr);
       ctx->SetLastTag(tag);
@@ -978,14 +950,14 @@ size_t CIMVoipHeartbeat::ByteSizeLong() const {
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  int cached_size = ::_pbi::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
 void CIMVoipHeartbeat::CheckTypeAndMergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const CIMVoipHeartbeat*>(
+  MergeFrom(*::_pbi::DownCast<const CIMVoipHeartbeat*>(
       &from));
 }
 
@@ -1040,9 +1012,6 @@ CIMVoipByeReq::CIMVoipByeReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
   // @@protoc_insertion_point(arena_constructor:CIM.Voip.CIMVoipByeReq)
 }
 CIMVoipByeReq::CIMVoipByeReq(const CIMVoipByeReq& from)
@@ -1068,9 +1037,11 @@ inline void CIMVoipByeReq::SharedCtor() {
 
 CIMVoipByeReq::~CIMVoipByeReq() {
   // @@protoc_insertion_point(destructor:CIM.Voip.CIMVoipByeReq)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void CIMVoipByeReq::SharedDtor() {
@@ -1078,12 +1049,6 @@ inline void CIMVoipByeReq::SharedDtor() {
   if (this != internal_default_instance()) delete channel_info_;
 }
 
-void CIMVoipByeReq::ArenaDtor(void* object) {
-  CIMVoipByeReq* _this = reinterpret_cast< CIMVoipByeReq* >(object);
-  (void)_this;
-}
-void CIMVoipByeReq::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void CIMVoipByeReq::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
@@ -1104,11 +1069,11 @@ void CIMVoipByeReq::Clear() {
   _internal_metadata_.Clear<std::string>();
 }
 
-const char* CIMVoipByeReq::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CIMVoipByeReq::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint64 local_call_time_len = 1;
       case 1:
@@ -1175,27 +1140,26 @@ uint8_t* CIMVoipByeReq::_InternalSerialize(
   // uint64 local_call_time_len = 1;
   if (this->_internal_local_call_time_len() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_local_call_time_len(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_local_call_time_len(), target);
   }
 
   // uint64 user_id = 2;
   if (this->_internal_user_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_user_id(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_user_id(), target);
   }
 
   // .CIM.Def.CIMChannelInfo channel_info = 3;
   if (this->_internal_has_channel_info()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::channel_info(this), target, stream);
+      InternalWriteMessage(3, _Internal::channel_info(this),
+        _Internal::channel_info(this).GetCachedSize(), target, stream);
   }
 
   // .CIM.Def.CIMVoipByeReason bye_reason = 4;
   if (this->_internal_bye_reason() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       4, this->_internal_bye_reason(), target);
   }
 
@@ -1224,31 +1188,31 @@ size_t CIMVoipByeReq::ByteSizeLong() const {
 
   // uint64 local_call_time_len = 1;
   if (this->_internal_local_call_time_len() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_local_call_time_len());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_local_call_time_len());
   }
 
   // uint64 user_id = 2;
   if (this->_internal_user_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_user_id());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_user_id());
   }
 
   // .CIM.Def.CIMVoipByeReason bye_reason = 4;
   if (this->_internal_bye_reason() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_bye_reason());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_bye_reason());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  int cached_size = ::_pbi::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
 void CIMVoipByeReq::CheckTypeAndMergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const CIMVoipByeReq*>(
+  MergeFrom(*::_pbi::DownCast<const CIMVoipByeReq*>(
       &from));
 }
 
@@ -1310,9 +1274,6 @@ CIMVoipByeRsp::CIMVoipByeRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
   // @@protoc_insertion_point(arena_constructor:CIM.Voip.CIMVoipByeRsp)
 }
 CIMVoipByeRsp::CIMVoipByeRsp(const CIMVoipByeRsp& from)
@@ -1328,21 +1289,17 @@ error_code_ = 0;
 
 CIMVoipByeRsp::~CIMVoipByeRsp() {
   // @@protoc_insertion_point(destructor:CIM.Voip.CIMVoipByeRsp)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void CIMVoipByeRsp::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void CIMVoipByeRsp::ArenaDtor(void* object) {
-  CIMVoipByeRsp* _this = reinterpret_cast< CIMVoipByeRsp* >(object);
-  (void)_this;
-}
-void CIMVoipByeRsp::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void CIMVoipByeRsp::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
@@ -1357,11 +1314,11 @@ void CIMVoipByeRsp::Clear() {
   _internal_metadata_.Clear<std::string>();
 }
 
-const char* CIMVoipByeRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CIMVoipByeRsp::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .CIM.Def.CIMErrorCode error_code = 1;
       case 1:
@@ -1404,7 +1361,7 @@ uint8_t* CIMVoipByeRsp::_InternalSerialize(
   // .CIM.Def.CIMErrorCode error_code = 1;
   if (this->_internal_error_code() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       1, this->_internal_error_code(), target);
   }
 
@@ -1427,20 +1384,20 @@ size_t CIMVoipByeRsp::ByteSizeLong() const {
   // .CIM.Def.CIMErrorCode error_code = 1;
   if (this->_internal_error_code() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error_code());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_error_code());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  int cached_size = ::_pbi::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
 void CIMVoipByeRsp::CheckTypeAndMergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const CIMVoipByeRsp*>(
+  MergeFrom(*::_pbi::DownCast<const CIMVoipByeRsp*>(
       &from));
 }
 
@@ -1499,9 +1456,6 @@ CIMVoipByeNotify::CIMVoipByeNotify(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
   // @@protoc_insertion_point(arena_constructor:CIM.Voip.CIMVoipByeNotify)
 }
 CIMVoipByeNotify::CIMVoipByeNotify(const CIMVoipByeNotify& from)
@@ -1527,9 +1481,11 @@ inline void CIMVoipByeNotify::SharedCtor() {
 
 CIMVoipByeNotify::~CIMVoipByeNotify() {
   // @@protoc_insertion_point(destructor:CIM.Voip.CIMVoipByeNotify)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void CIMVoipByeNotify::SharedDtor() {
@@ -1537,12 +1493,6 @@ inline void CIMVoipByeNotify::SharedDtor() {
   if (this != internal_default_instance()) delete channel_info_;
 }
 
-void CIMVoipByeNotify::ArenaDtor(void* object) {
-  CIMVoipByeNotify* _this = reinterpret_cast< CIMVoipByeNotify* >(object);
-  (void)_this;
-}
-void CIMVoipByeNotify::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void CIMVoipByeNotify::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
@@ -1563,11 +1513,11 @@ void CIMVoipByeNotify::Clear() {
   _internal_metadata_.Clear<std::string>();
 }
 
-const char* CIMVoipByeNotify::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CIMVoipByeNotify::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint64 user_id = 1;
       case 1:
@@ -1626,21 +1576,20 @@ uint8_t* CIMVoipByeNotify::_InternalSerialize(
   // uint64 user_id = 1;
   if (this->_internal_user_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_user_id(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_user_id(), target);
   }
 
   // .CIM.Def.CIMChannelInfo channel_info = 2;
   if (this->_internal_has_channel_info()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::channel_info(this), target, stream);
+      InternalWriteMessage(2, _Internal::channel_info(this),
+        _Internal::channel_info(this).GetCachedSize(), target, stream);
   }
 
   // .CIM.Def.CIMVoipByeReason byeReason = 3;
   if (this->_internal_byereason() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       3, this->_internal_byereason(), target);
   }
 
@@ -1669,26 +1618,26 @@ size_t CIMVoipByeNotify::ByteSizeLong() const {
 
   // uint64 user_id = 1;
   if (this->_internal_user_id() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_user_id());
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_user_id());
   }
 
   // .CIM.Def.CIMVoipByeReason byeReason = 3;
   if (this->_internal_byereason() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_byereason());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_byereason());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  int cached_size = ::_pbi::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
 void CIMVoipByeNotify::CheckTypeAndMergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const CIMVoipByeNotify*>(
+  MergeFrom(*::_pbi::DownCast<const CIMVoipByeNotify*>(
       &from));
 }
 
@@ -1741,25 +1690,32 @@ std::string CIMVoipByeNotify::GetTypeName() const {
 }  // namespace Voip
 }  // namespace CIM
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::CIM::Voip::CIMVoipInviteReq* Arena::CreateMaybeMessage< ::CIM::Voip::CIMVoipInviteReq >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::CIM::Voip::CIMVoipInviteReq*
+Arena::CreateMaybeMessage< ::CIM::Voip::CIMVoipInviteReq >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CIM::Voip::CIMVoipInviteReq >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CIM::Voip::CIMVoipInviteReply* Arena::CreateMaybeMessage< ::CIM::Voip::CIMVoipInviteReply >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::CIM::Voip::CIMVoipInviteReply*
+Arena::CreateMaybeMessage< ::CIM::Voip::CIMVoipInviteReply >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CIM::Voip::CIMVoipInviteReply >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CIM::Voip::CIMVoipInviteReplyAck* Arena::CreateMaybeMessage< ::CIM::Voip::CIMVoipInviteReplyAck >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::CIM::Voip::CIMVoipInviteReplyAck*
+Arena::CreateMaybeMessage< ::CIM::Voip::CIMVoipInviteReplyAck >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CIM::Voip::CIMVoipInviteReplyAck >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CIM::Voip::CIMVoipHeartbeat* Arena::CreateMaybeMessage< ::CIM::Voip::CIMVoipHeartbeat >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::CIM::Voip::CIMVoipHeartbeat*
+Arena::CreateMaybeMessage< ::CIM::Voip::CIMVoipHeartbeat >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CIM::Voip::CIMVoipHeartbeat >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CIM::Voip::CIMVoipByeReq* Arena::CreateMaybeMessage< ::CIM::Voip::CIMVoipByeReq >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::CIM::Voip::CIMVoipByeReq*
+Arena::CreateMaybeMessage< ::CIM::Voip::CIMVoipByeReq >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CIM::Voip::CIMVoipByeReq >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CIM::Voip::CIMVoipByeRsp* Arena::CreateMaybeMessage< ::CIM::Voip::CIMVoipByeRsp >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::CIM::Voip::CIMVoipByeRsp*
+Arena::CreateMaybeMessage< ::CIM::Voip::CIMVoipByeRsp >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CIM::Voip::CIMVoipByeRsp >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CIM::Voip::CIMVoipByeNotify* Arena::CreateMaybeMessage< ::CIM::Voip::CIMVoipByeNotify >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::CIM::Voip::CIMVoipByeNotify*
+Arena::CreateMaybeMessage< ::CIM::Voip::CIMVoipByeNotify >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CIM::Voip::CIMVoipByeNotify >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
