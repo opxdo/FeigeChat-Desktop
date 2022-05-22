@@ -21,6 +21,7 @@ build_libuv(){
   cd .. && rm -rf build
 }
 
+# protobuf
 build_protobuf(){
   # see: https://github.com/protocolbuffers/protobuf/tree/main/src
   echo "build_protobuf"
@@ -42,6 +43,31 @@ build_protobuf(){
   make clean
 }
 
+# sqlite3的CPP封装（包含sqlite3源码），支持C++11
+build_sqlitecpp(){
+  echo "build_sqlitecpp"
+
+  # exit on first error
+  set -e
+
+  cd $CUR_DIR/SQLiteCpp-3.1.1 && mkdir -p build && cd build
+
+  # Generate a Makefile for GCC (or Clang, depanding on CC/CXX envvar)
+  cmake -DCMAKE_BUILD_TYPE=Debug -DSQLITECPP_USE_ASAN=OFF -DSQLITECPP_USE_GCOV=OFF -DSQLITECPP_BUILD_EXAMPLES=OFF -DSQLITECPP_BUILD_TESTS=OFF ..
+
+  # Build (ie 'make')
+  cmake --build .
+
+  # And with Valgrind
+  #valgrind --leak-check=full --error-exitcode=1 ./SQLiteCpp_example1
+  #valgrind --leak-check=full --error-exitcode=1 ./SQLiteCpp_tests
+
+  cp libSQLiteCpp.a $LIB_DIR
+  cp sqlite3/libsqlite3.a $LIB_DIR
+  cd .. && rm -rf build
+}
+
 build_spdlog
 build_libuv
 build_protobuf
+build_sqlitecpp

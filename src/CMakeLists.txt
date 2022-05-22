@@ -36,12 +36,13 @@ set(THIRD_LIB_DIR
 set(THIRD_INCLUDE_DIR
         ${PROJECT_SOURCE_DIR}/3rd-party/spdlog-1.9.2/include
         ${PROJECT_SOURCE_DIR}/3rd-party/libuv-1.44.1/include
-        ${PROJECT_SOURCE_DIR}/3rd-party/lib/include/    # protobuf
+        ${PROJECT_SOURCE_DIR}/3rd-party/lib/include/            # protobuf
+        ${PROJECT_SOURCE_DIR}/3rd-party/SQLiteCpp-3.1.1/include # SQLiteCPP
         )
 
 # 库
 add_subdirectory(chatkit)
-#add_subdirectory(feigechat)
+add_subdirectory(feigechat)
 
 # 生成demo
 set(BUILD_DEMO true)

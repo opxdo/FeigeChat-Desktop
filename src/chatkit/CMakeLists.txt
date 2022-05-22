@@ -24,8 +24,8 @@ if (APPLE) # 使用vcpkg 快速安装的依赖
     #find_package(sdplog CONFIG REQUIRED)
     #find_package(unofficial-libuv CONFIG REQUIRED)
     #find_package(Protobuf CONFIG REQUIRED)
+    #find_package(SQLiteCpp CONFIG REQUIRED)
     find_package(restclient-cpp CONFIG REQUIRED)
-    find_package(SQLiteCpp CONFIG REQUIRED)
     find_package(nlohmann_json CONFIG REQUIRED)
 endif ()
 
@@ -60,12 +60,12 @@ target_link_libraries(${ChatKitLib}
 
         # 通过vcpkg引入
         restclient-cpp
-        SQLiteCpp
         nlohmann_json::nlohmann_json
         # 自己编译的
-        spdlog.a
-        uv.a
+        libspdlog.a
+        libuv.a
         libprotobuf-lite.a
+        libSQLiteCpp.a libsqlite3.a
         )
 
 # 静态库
