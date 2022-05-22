@@ -1,7 +1,7 @@
 #include "user_register_dialog.h"
 
+#include <regex>
 #include <QMessageBox>
-#include <QRegExpValidator>
 #include <QValidator>
 
 #include "cim/cim.h"
@@ -14,23 +14,20 @@ UserRegisterDialog::UserRegisterDialog(QWidget *parent) : QDialog(parent), ui(ne
 UserRegisterDialog::~UserRegisterDialog() { delete ui; }
 
 void UserRegisterDialog::on_pbOk_clicked() {
-    QRegExp regx("^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$");
-    QRegExpValidator v(regx, ui->leEmail);
-
-    QString str = ui->leEmail->text();
-    int pos = 0;
-    if (v.validate(str, pos) != QValidator::State::Acceptable) {
+    std::string email = ui->leEmail->text().toStdString();
+    std::regex regx("^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$");
+    bool ret = std::regex_match(email.c_str(), regx);
+    if (!ret) {
         QMessageBox::information(this, "Tips", "邮箱格式不正确", QMessageBox::Yes);
         return;
     }
-
     if (ui->lePwd->text().length() <= 3) {
         QMessageBox::information(this, "Tips", "请输入至少3位密码", QMessageBox::Yes);
         return;
     }
 
     cim::core::HttpResponseBase res;
-    if (cim::core::UserManager::getInstance()->registerUser(str.toStdString(), ui->lePwd->text().toStdString(),
+    if (cim::core::UserManager::getInstance()->registerUser(email, ui->lePwd->text().toStdString(),
                                                             ui->leNick->text().toStdString(), res)) {
         QMessageBox::information(this, "Tips", "注册成功", QMessageBox::Yes);
         this->accept();

@@ -1,5 +1,6 @@
 #include "logindialog.h"
 
+#include <regex>
 #include <QMessageBox>
 #include <QMetaObject>
 
@@ -15,17 +16,13 @@ LoginDialog::LoginDialog(QWidget* parent) : QDialog(parent), ui(new Ui::LoginDia
 
 LoginDialog::~LoginDialog() {
     delete ui;
-    if (email_validator_) {
-        delete email_validator_;
-        email_validator_ = nullptr;
-    }
 }
 
 void LoginDialog::on_pushButton_clicked() {
-    QString str = ui->leUserName->text();
-    int pos = 0;
-    auto status = email_validator_->validate(str, pos);
-    if (status != QValidator::State::Acceptable) {
+    std::string userName = ui->leUserName->text().toStdString();
+    std::regex regx("^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$");
+    bool ret = std::regex_match(userName.c_str(), regx);
+    if (!ret) {
         QMessageBox::information(this, "Tips", "邮箱格式不正确", QMessageBox::Yes);
         return;
     }

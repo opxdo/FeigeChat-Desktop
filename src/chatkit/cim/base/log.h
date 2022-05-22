@@ -23,19 +23,19 @@
 #define __FILENAME__ (strrchr(__FILE__, '/') ? (strrchr(__FILE__, '/') + 1) : __FILE__)
 #endif
 
-//定义一个在日志后添加 文件名 函数名 行号 的宏定义.
-#ifndef suffix
-#define suffix(msg)                       \
-    std::string(msg)                      \
-        .append("  <")                    \
-        .append(__FILENAME__)             \
-        .append("> <")                    \
-        .append(__FUNCTION__)             \
-        .append("> <")                    \
-        .append(std::to_string(__LINE__)) \
-        .append(">")                      \
-        .c_str()
-#endif
+////定义一个在日志后添加 文件名 函数名 行号 的宏定义.
+//#ifndef suffix
+//#define suffix(msg)                       \
+//    std::string(msg)                      \
+//        .append("  <")                    \
+//        .append(__FILENAME__)             \
+//        .append("> <")                    \
+//        .append(__FUNCTION__)             \
+//        .append("> <")                    \
+//        .append(std::to_string(__LINE__)) \
+//        .append(">")                      \
+//        .c_str()
+//#endif
 
 #include <spdlog/sinks/daily_file_sink.h>
 #include <spdlog/sinks/stdout_color_sinks.h>

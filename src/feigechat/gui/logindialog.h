@@ -30,7 +30,6 @@ private slots:
 
 private:
     Ui::LoginDialog *ui;
-    QValidator *email_validator_;
 };
 
 #endif // LOGINDIALOG_H
